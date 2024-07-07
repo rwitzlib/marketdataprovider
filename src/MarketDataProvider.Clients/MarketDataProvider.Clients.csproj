@@ -3,6 +3,18 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
+    <PackageId>MarketDataProvider.Clients</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Robert Witzlib</Authors>
+    <Description>
+      .NET project containing clients for MarketDataProvider.
+    </Description>
+    <Product>MarketDataProvider.Clients</Product>
+    <PackageProjectUrl>https://github.com/rwitzlib/stockmountain-marketdataprovider</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/rwitzlib/stockmountain-marketdataprovider</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReleaseNotes>Publish initial clients</PackageReleaseNotes>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
