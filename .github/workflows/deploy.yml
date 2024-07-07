@@ -35,5 +35,5 @@ jobs:
       - build
     uses: rwitzlib/github-action-templates/.github/workflows/nuget-publish.yml@MARK-188_add-nuget-publish-workflow
     with:
-      package: MarketDataProvider.Contracts
+      publish_project: ./src/MarketDataProvider.Contracts
       dotnet_version: '8.0'
