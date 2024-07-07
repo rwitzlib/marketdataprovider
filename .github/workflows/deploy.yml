@@ -30,7 +30,8 @@ jobs:
       terraform_directory: ./tf
     secrets: inherit
   
-  publish:
+  publish_contracts:
+    if: github.event_name == 'workflow_dispatch' || github.ref_name == 'master'
     needs:
       - build
     uses: rwitzlib/github-action-templates/.github/workflows/nuget-publish.yml@MARK-188_add-nuget-publish-workflow
