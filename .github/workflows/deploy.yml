@@ -37,3 +37,4 @@ jobs:
     with:
       publish_project: ./src/MarketDataProvider.Contracts
       dotnet_version: '8.0'
+    secrets: inherit
