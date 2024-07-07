@@ -13,9 +13,7 @@
     <PackageProjectUrl>https://github.com/rwitzlib/stockmountain-marketdataprovider</PackageProjectUrl>
     <RepositoryUrl>https://github.com/rwitzlib/stockmountain-marketdataprovider</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-
     <PackageReleaseNotes>Publish initial contracts</PackageReleaseNotes>
-
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 

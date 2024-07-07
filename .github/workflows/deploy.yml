@@ -39,3 +39,13 @@ jobs:
       publish_project: ./src/MarketDataProvider.Contracts
       dotnet_version: '8.0'
     secrets: inherit
+
+  publish_clients:
+    if: github.event_name == 'workflow_dispatch' || github.ref_name == 'master'
+    needs:
+      - build
+    uses: rwitzlib/github-action-templates/.github/workflows/nuget-publish.yml@master
+    with:
+      publish_project: ./src/MarketDataProvider.Clients
+      dotnet_version: '8.0'
+    secrets: inherit
