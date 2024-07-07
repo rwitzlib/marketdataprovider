@@ -34,7 +34,7 @@ jobs:
     if: github.event_name == 'workflow_dispatch' || github.ref_name == 'master'
     needs:
       - build
-    uses: rwitzlib/github-action-templates/.github/workflows/nuget-publish.yml@MARK-188_add-nuget-publish-workflow
+    uses: rwitzlib/github-action-templates/.github/workflows/nuget-publish.yml@master
     with:
       publish_project: ./src/MarketDataProvider.Contracts
       dotnet_version: '8.0'
