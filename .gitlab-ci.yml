@@ -1,0 +1,113 @@
+stages:
+  - validate
+  - publish
+
+dotnet_validate:
+  stage: validate
+  image: mcr.microsoft.com/dotnet/sdk:8.0
+  script:
+    - cd src
+    - dotnet nuget add source "$CI_API_V4_URL/groups/$CI_GROUP_ID/-/packages/nuget/index.json" 
+      --name "Gitlab Registry" --username "rwitzlib" 
+      --password $CI_MARKETVIEWER_REGISTRY --store-password-in-clear-text
+    - dotnet restore
+    - dotnet build
+    - dotnet test -m:1
+  after_script:
+    - cd src
+    - export PATH="$PATH:/root/.dotnet/tools"
+    - dotnet tool install -g dotnet-reportgenerator-globaltool
+    - reportgenerator -reports:TestResults/coverage.cobertura.xml -targetdir:TestResults -reporttypes:Html
+  coverage: '/Total\s*\|\s*(\d+(?:\.\d+)?)/'
+  artifacts:
+    paths:
+      - src/TestResults/*
+    reports:
+      coverage_report:
+        coverage_format: cobertura
+        path: src/TestResults/coverage.cobertura.xml
+  tags:
+    - local-dev
+
+publish contract (prerelease):
+  stage: publish
+  image: mcr.microsoft.com/dotnet/sdk:8.0
+  script:
+    - cd src/MarketDataProvider.Contracts
+    # Add Source
+    - dotnet nuget add source "$CI_API_V4_URL/projects/$CI_PROJECT_ID/packages/nuget/index.json" 
+      --name "Gitlab Registry" --username "rwitzlib" 
+      --password $CI_MARKETVIEWER_REGISTRY --store-password-in-clear-text
+    # Publish
+    - dotnet pack -c Debug --version-suffix "$CI_PIPELINE_ID-prerelease"
+    - dotnet nuget push "bin/Debug/*.nupkg" --source "Gitlab Registry" --api-key $CI_MARKETVIEWER_REGISTRY
+
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule" || $CI_PIPELINE_SOURCE == "merge_request_event"'
+      when: never
+    - if: '$CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH'
+      when: manual
+      allow_failure: true
+  tags:
+    - local-dev
+
+publish clients (prerelease):
+  stage: publish
+  image: mcr.microsoft.com/dotnet/sdk:8.0
+  script:
+    - cd src/MarketDataProvider.Clients
+    # Add Source
+    - dotnet nuget add source "$CI_API_V4_URL/projects/$CI_PROJECT_ID/packages/nuget/index.json" 
+      --name "Gitlab Registry" --username "rwitzlib" 
+      --password $CI_MARKETVIEWER_REGISTRY --store-password-in-clear-text
+    # Publish
+    - dotnet pack -c Debug --version-suffix "$CI_PIPELINE_ID-prerelease"
+    - dotnet nuget push "bin/Debug/*.nupkg" --source "Gitlab Registry" --api-key $CI_MARKETVIEWER_REGISTRY
+
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule" || $CI_PIPELINE_SOURCE == "merge_request_event"'
+      when: never
+    - if: '$CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH'
+      when: manual
+      allow_failure: true
+  tags:
+    - local-dev
+
+publish contracts (release):
+  stage: publish
+  image: mcr.microsoft.com/dotnet/sdk:8.0
+  script:
+    - cd src/MarketDataProvider.Contracts
+    # Add Source
+    - dotnet nuget add source "$CI_API_V4_URL/projects/$CI_PROJECT_ID/packages/nuget/index.json" 
+      --name "Gitlab Registry" --username "rwitzlib" 
+      --password $CI_MARKETVIEWER_REGISTRY --store-password-in-clear-text
+    # Publish Contracts
+    - dotnet pack -c Release --version-suffix "$CI_PIPELINE_ID-rc"
+    - dotnet nuget push "bin/Release/*.nupkg" --source "Gitlab Registry" --api-key $CI_MARKETVIEWER_REGISTRY
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule" || $CI_PIPELINE_SOURCE == "merge_request_event"'
+      when: never
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+  tags:
+    - local-dev
+
+publish clients (release):
+  stage: publish
+  image: mcr.microsoft.com/dotnet/sdk:8.0
+  script:
+    - cd src/MarketDataProvider.Clients
+    # Add Source
+    - dotnet nuget add source "$CI_API_V4_URL/projects/$CI_PROJECT_ID/packages/nuget/index.json" 
+      --name "Gitlab Registry" --username "rwitzlib" 
+      --password $CI_MARKETVIEWER_REGISTRY --store-password-in-clear-text
+    # Publish Clients
+    - dotnet pack -c Release --version-suffix "$CI_PIPELINE_ID-rc"
+    - dotnet nuget push "bin/Release/*.nupkg" --source "Gitlab Registry" --api-key $CI_MARKETVIEWER_REGISTRY
+
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule" || $CI_PIPELINE_SOURCE == "merge_request_event"'
+      when: never
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+  tags:
+    - local-dev
