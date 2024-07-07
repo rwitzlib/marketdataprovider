@@ -3,6 +3,22 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
+    <PackageId>MarketDataProvider.Contracts</PackageId>
+    <Version>1.0-preview</Version>
+    <Authors>Robert Witzlib</Authors>
+    <Description>
+      .NET project containing models, request and response contracts for MarketDataProvider.
+    </Description>
+    <Product>MarketDataProvider.Contracts</Product>
+    <PackageProjectUrl>https://github.com/rwitzlib/stockmountain-marketdataprovider</PackageProjectUrl>
+    <PackageIcon>./polygon_icon.png</PackageIcon>
+    <PackageReadmeFile>../../README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/rwitzlib/stockmountain-marketdataprovider</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+
+    <PackageReleaseNotes>Publish initial contracts</PackageReleaseNotes>
+
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
