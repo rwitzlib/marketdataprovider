@@ -1,0 +1,73 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34607.119
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketDataProvider.Api", "MarketDataProvider.Api\MarketDataProvider.Api.csproj", "{32771186-AE67-4789-BAAA-0C45D76EB3E2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketDataProvider.Contracts", "MarketDataProvider.Contracts\MarketDataProvider.Contracts.csproj", "{36ED1233-9599-4885-B242-CBDC79A83C5B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketDataProvider.Application", "MarketDataProvider.Application\MarketDataProvider.Application.csproj", "{D01A0874-C258-4A03-970F-66B15B07B227}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketDataProvider.Application.UnitTests", "MarketDataProvider.Application.UnitTests\MarketDataProvider.Application.UnitTests.csproj", "{93F11498-0533-4080-A0B4-BD694A30348A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketDataProvider.Api.UnitTests", "MarketDataProvider.Api.UnitTests\MarketDataProvider.Api.UnitTests.csproj", "{0A7C749E-1AAC-433A-B0F1-6DAD9A1954CB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketDataProvider.Infrastructure", "MarketDataProvider.Infrastructure\MarketDataProvider.Infrastructure.csproj", "{6E84C4A8-B83B-4F52-AFEC-82941D5F235B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketDataProvider.Clients", "MarketDataProvider.Clients\MarketDataProvider.Clients.csproj", "{7B1B7645-763D-45DA-9525-9F410CABE092}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketDataProvider.Infrastructure.UnitTests", "MarketDataProvider.Infrastructure.UnitTests\MarketDataProvider.Infrastructure.UnitTests.csproj", "{21DC61A2-563B-453E-A6DA-62C2CF0AA44A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketDataProvider.Clients.UnitTests", "MarketDataProvider.Clients.UnitTests\MarketDataProvider.Clients.UnitTests.csproj", "{89DD47C9-ED78-4B3C-8660-2E9A52297B80}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{32771186-AE67-4789-BAAA-0C45D76EB3E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32771186-AE67-4789-BAAA-0C45D76EB3E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32771186-AE67-4789-BAAA-0C45D76EB3E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32771186-AE67-4789-BAAA-0C45D76EB3E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36ED1233-9599-4885-B242-CBDC79A83C5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36ED1233-9599-4885-B242-CBDC79A83C5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36ED1233-9599-4885-B242-CBDC79A83C5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36ED1233-9599-4885-B242-CBDC79A83C5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D01A0874-C258-4A03-970F-66B15B07B227}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D01A0874-C258-4A03-970F-66B15B07B227}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D01A0874-C258-4A03-970F-66B15B07B227}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D01A0874-C258-4A03-970F-66B15B07B227}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93F11498-0533-4080-A0B4-BD694A30348A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93F11498-0533-4080-A0B4-BD694A30348A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93F11498-0533-4080-A0B4-BD694A30348A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93F11498-0533-4080-A0B4-BD694A30348A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A7C749E-1AAC-433A-B0F1-6DAD9A1954CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A7C749E-1AAC-433A-B0F1-6DAD9A1954CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A7C749E-1AAC-433A-B0F1-6DAD9A1954CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A7C749E-1AAC-433A-B0F1-6DAD9A1954CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E84C4A8-B83B-4F52-AFEC-82941D5F235B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E84C4A8-B83B-4F52-AFEC-82941D5F235B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E84C4A8-B83B-4F52-AFEC-82941D5F235B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E84C4A8-B83B-4F52-AFEC-82941D5F235B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B1B7645-763D-45DA-9525-9F410CABE092}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B1B7645-763D-45DA-9525-9F410CABE092}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B1B7645-763D-45DA-9525-9F410CABE092}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B1B7645-763D-45DA-9525-9F410CABE092}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21DC61A2-563B-453E-A6DA-62C2CF0AA44A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21DC61A2-563B-453E-A6DA-62C2CF0AA44A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21DC61A2-563B-453E-A6DA-62C2CF0AA44A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21DC61A2-563B-453E-A6DA-62C2CF0AA44A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89DD47C9-ED78-4B3C-8660-2E9A52297B80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89DD47C9-ED78-4B3C-8660-2E9A52297B80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89DD47C9-ED78-4B3C-8660-2E9A52297B80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89DD47C9-ED78-4B3C-8660-2E9A52297B80}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A99F1E7B-9549-4CEA-9040-65004A84FF4C}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,24 @@
+title Aggregate Workflow
+actor Client
+participant MarketViewerService
+database DataStore
+participant MarketDataProvider
+participant Polygon API
+
+Client->MarketViewerService:/aggregate
+activate MarketViewerService
+MarketViewerService->DataStore:READ aggregate
+MarketViewerService<-DataStore:READ aggregate
+
+opt if aggregate was not found in cache
+MarketViewerService->MarketDataProvider:/aggregate
+MarketDataProvider->Polygon API:/aggregate
+activate Polygon API
+
+MarketDataProvider<-Polygon API:/aggregate
+deactivate Polygon API
+DataStore<-MarketDataProvider:ADD aggregate
+MarketViewerService<-MarketDataProvider:/aggregate
+end
+Client<-MarketViewerService:/aggregate
+deactivate MarketViewerService

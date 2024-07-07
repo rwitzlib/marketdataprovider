@@ -1,0 +1,6 @@
+@MarketDataProvider_HostAddress = http://localhost:5243
+
+GET {{MarketDataProvider_HostAddress}}/aggregate
+Accept: application/json
+
+###
